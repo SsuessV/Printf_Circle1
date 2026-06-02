@@ -6,7 +6,7 @@
 /*   By: suyoun <suyoun@student.42vienna.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/01 03:05:07 by suyoun            #+#    #+#             */
-/*   Updated: 2026/06/02 15:56:29 by suyoun           ###   ########.fr       */
+/*   Updated: 2026/06/02 22:19:08 by suyoun           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,12 +34,12 @@ static int	format_specifier(const char *spec, va_list args)
 	return (i);
 }
 
-int ft_printf(const char *format, ...)
+int	ft_printf(const char *format, ...)
 {
-	va_list args;
-	int	i;
+	va_list	args;
+	int		i;
 
-	i =  0;
+	i = 0;
 	va_end (args);
 	return (i);
 }

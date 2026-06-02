@@ -6,15 +6,17 @@
 /*   By: suyoun <suyoun@student.42vienna.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/01 03:02:47 by suyoun            #+#    #+#             */
-/*   Updated: 2026/06/02 11:48:58 by suyoun           ###   ########.fr       */
+/*   Updated: 2026/06/02 22:24:41 by suyoun           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-size_t  ft_strlen(const char *s)
+size_t	ft_strlen(const char *s)
 {
-	size_t  len;
+	size_t	len;
+
+	len = 0;
 	while (*s)
 	{
 		len++;

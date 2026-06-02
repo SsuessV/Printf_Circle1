@@ -6,7 +6,7 @@
 /*   By: suyoun <suyoun@student.42vienna.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/01 12:24:10 by suyoun            #+#    #+#             */
-/*   Updated: 2026/06/02 11:48:45 by suyoun           ###   ########.fr       */
+/*   Updated: 2026/06/02 22:24:58 by suyoun           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 
 void	ft_putnbr(int nb)
 {
-	long    num;
+	long	num;
 
 	num = nb;
-	if (num < 0)		
+	if (num < 0)
 	{
 		write(1, "-", 1);
 		num = -num;
@@ -27,10 +27,10 @@ void	ft_putnbr(int nb)
 	write(1, &"0123456789"[num % 10], 1);
 }
 
-int ft_len(int n)
+int	ft_len(int n)
 {
-	long    num;
-	int     len;
+	long	num;
+	int		len;
 
 	num = n;
 	len = 0;
@@ -46,7 +46,7 @@ int ft_len(int n)
 	return (len);
 }
 
-int ft_print_nbr(int n)
+int	ft_print_nbr(int n)
 {
 	ft_putnbr(n);
 	return (ft_len(n));

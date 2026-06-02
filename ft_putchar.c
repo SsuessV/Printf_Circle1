@@ -6,15 +6,14 @@
 /*   By: suyoun <suyoun@student.42vienna.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/01 03:01:49 by suyoun            #+#    #+#             */
-/*   Updated: 2026/06/02 11:48:49 by suyoun           ###   ########.fr       */
+/*   Updated: 2026/06/02 22:24:21 by suyoun           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int ft_putchar(int c)
+int	ft_putchar(int c)
 {
 	write (1, &c, 1);
 	return (1);
 }
-

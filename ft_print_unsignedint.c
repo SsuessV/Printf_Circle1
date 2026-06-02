@@ -6,7 +6,7 @@
 /*   By: suyoun <suyoun@student.42vienna.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/02 11:46:07 by suyoun            #+#    #+#             */
-/*   Updated: 2026/06/02 12:46:13 by suyoun           ###   ########.fr       */
+/*   Updated: 2026/06/02 22:24:10 by suyoun           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,9 @@ static void	ft_unsigned_d(unsigned int n)
 	write(1, &"0123456789"[n % 10], 1);
 }
 
-int ft_len(unsigned int n)
+int	ft_len(unsigned int n)
 {
-	int len;
+	int	len;
 
 	len = 0;
 	if (n == 0)
@@ -34,7 +34,7 @@ int ft_len(unsigned int n)
 	return (len);
 }
 
-int ft_print_unsignedint(unsigned int n)
+int	ft_print_unsignedint(unsigned int n)
 {
 	ft_unsigned_d(n);
 	return (ft_len(n));

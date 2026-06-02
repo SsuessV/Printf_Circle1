@@ -92,6 +92,7 @@ AI tools (such as ChatGPT/Claude) were used to:
 * Understand edge cases
 * Review implementation approaches and assist with debugging logic
 * Assist in writing parts of a test `main` function for testing purposes
+* Assist in structuring README file
 
 No main functions were copied directly; all implementations were written manually.
 

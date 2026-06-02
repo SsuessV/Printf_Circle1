@@ -1,4 +1,4 @@
-*This project has been created as part of the 42 curriculum by suyoun*
+*This project has been created as part of the 42 curriculum by suyoun.*
 
 # ft_Printf
 
@@ -24,31 +24,7 @@ and how different data types are processed and printed.
 This implementation can be reused as a custom formatted output function  
 in future projects.
 
----
-
-## Instructions
-
-### Compilation
-
-To compile the project, run:  
-`make`  
-This will generate static library:  
-`libftprintf.a`  
-To remove object and dependency files:  
-`make clean`  
-To remove all generated files:  
-`make fclean`  
-To recompile everything from scratch:  
-`make re`
-
-### Usage
-
-Include the library header in your project:  
-`#include "ft_printf.h"`  
-Compile your program with the library:  
-`cc main.c libftprintf.a`  
-
-## Project Overview
+### Project Overview
 
 This project is a custom implementation of the standard C `printf` function.  
 It replicates formatted output behavior using variadic functions and manual format parsing.
@@ -71,6 +47,30 @@ The project is structured around:
 - converting and printing different data types
 
 All functionality is implemented without using the standard `printf`.
+
+---
+
+## Instructions
+
+### Compilation
+
+To compile the project, run:  
+`make`  
+This will generate static library:  
+`libftprintf.a`  
+To remove object and dependency files:  
+`make clean`  
+To remove all generated files:  
+`make fclean`  
+To recompile everything from scratch:  
+`make re`
+
+### Usage
+
+Include the library header in your project:  
+`#include "ft_printf.h"`  
+Compile your program with the library:  
+`cc main.c libftprintf.a`
 
 ---
 

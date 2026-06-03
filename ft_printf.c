@@ -6,7 +6,7 @@
 /*   By: suyoun <suyoun@student.42vienna.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/01 03:05:07 by suyoun            #+#    #+#             */
-/*   Updated: 2026/06/02 22:19:08 by suyoun           ###   ########.fr       */
+/*   Updated: 2026/06/03 19:57:59 by suyoun           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,15 +18,15 @@ static int	format_specifier(const char *spec, va_list args)
 
 	i = 0;
 	if (*spec == 'c')
-		i += ft_putchar(va_arg(args, long int));
+		i += ft_putchar(va_arg(args, int));
 	else if (*spec == 's')
 		i += ft_putstr(va_arg(args, char *));
 	else if (*spec == 'p')
-		i += ft_put();
+		i += ft_print_ptr(va_arg(args, void *));
 	else if (*spec == 'd' || *spec == 'i')
 		i += ft_print_nbr(va_arg(args, unsigned int));
 	else if (*spec == 'u')
-		i += ft_print_unsignedint(va_arg(args, unsigned long int));
+		i += ft_print_unsignedint(va_arg(args, unsigned int));
 	else if (*spec == 'x')
 		i += ft_put();
 	else if (*spec == 'X')
@@ -36,8 +36,9 @@ static int	format_specifier(const char *spec, va_list args)
 
 int	ft_printf(const char *format, ...)
 {
-	va_list	args;
-	int		i;
+	va_list		args;
+	va_start	;
+	int			i;
 
 	i = 0;
 	va_end (args);

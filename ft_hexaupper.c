@@ -3,11 +3,24 @@
 /*                                                        :::      ::::::::   */
 /*   ft_hexaupper.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: suyoun <suyoun@student.42vienna.com>       +#+  +:+       +#+        */
+/*   By: suyoun <suyoun@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/01 03:05:50 by suyoun            #+#    #+#             */
-/*   Updated: 2026/06/02 11:48:33 by suyoun           ###   ########.fr       */
+/*   Updated: 2026/06/04 16:39:39 by suyoun           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+
+int	ft_hexa_upper(unsigned int n)
+{
+	const char	*base;
+	int			len;
+
+	base = "0123456789ABCDEF";
+	len = 0;
+	if (n >= 16)
+		len += convert_to_hex(n / 16);
+	len += write (1, &base[n % 16], 1);
+	return (len);
+}

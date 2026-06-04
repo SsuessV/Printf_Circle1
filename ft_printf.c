@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: suyoun <suyoun@student.42vienna.com>       +#+  +:+       +#+        */
+/*   By: suyoun <suyoun@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/01 03:05:07 by suyoun            #+#    #+#             */
-/*   Updated: 2026/06/03 19:57:59 by suyoun           ###   ########.fr       */
+/*   Updated: 2026/06/04 16:44:44 by suyoun           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,24 +14,20 @@
 
 static int	format_specifier(const char *spec, va_list args)
 {
-	int	i;
-
-	i = 0;
 	if (*spec == 'c')
-		i += ft_putchar(va_arg(args, int));
+		return (ft_putchar(va_arg(args, int)));
 	else if (*spec == 's')
-		i += ft_putstr(va_arg(args, char *));
+		return (ft_putstr(va_arg(args, char *)));
 	else if (*spec == 'p')
-		i += ft_print_ptr(va_arg(args, void *));
+		return (ft_print_ptr(va_arg(args, void *)));
 	else if (*spec == 'd' || *spec == 'i')
-		i += ft_print_nbr(va_arg(args, unsigned int));
+		return (ft_print_nbr(va_arg(args, unsigned int)));
 	else if (*spec == 'u')
-		i += ft_print_unsignedint(va_arg(args, unsigned int));
+		return (ft_print_unsignedint(va_arg(args, unsigned int)));
 	else if (*spec == 'x')
-		i += ft_put();
+		return (ft_hexa_lower(va_arg(args, unsigned int)));
 	else if (*spec == 'X')
-		i += ft_put();
-	return (i);
+		return (ft_hexa_upper(va_arg(args, unsigned int)));
 }
 
 int	ft_printf(const char *format, ...)
@@ -39,7 +35,8 @@ int	ft_printf(const char *format, ...)
 	va_list		args;
 	va_start	;
 	int			i;
-
+	if (format == NULL)
+		return (-1);
 	i = 0;
 	va_end (args);
 	return (i);

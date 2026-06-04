@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: suyoun <suyoun@student.42vienna.com>       +#+  +:+       +#+        */
+/*   By: suyoun <suyoun@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/01 02:46:11 by suyoun            #+#    #+#             */
-/*   Updated: 2026/06/02 22:23:07 by suyoun           ###   ########.fr       */
+/*   Updated: 2026/06/04 16:40:01 by suyoun           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,5 +24,7 @@ int		ft_putstr(char *s);
 int		ft_print_nbr(int n);
 void	ft_print_ptr(void *ptr);
 int		ft_print_unsignedint(unsigned int n);
+int		ft_hexa_lower(unsigned int n);
+int		ft_hexa_upper(unsigned int n);
 
 #endif

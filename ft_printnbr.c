@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printnbr.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: suyoun <suyoun@student.42vienna.com>       +#+  +:+       +#+        */
+/*   By: suyoun <suyoun@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/01 12:24:10 by suyoun            #+#    #+#             */
-/*   Updated: 2026/06/02 22:24:58 by suyoun           ###   ########.fr       */
+/*   Updated: 2026/06/04 16:23:30 by suyoun           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	ft_putnbr(int nb)
 {
-	long	num;
+	long long	num;
 
 	num = nb;
 	if (num < 0)
@@ -29,8 +29,8 @@ void	ft_putnbr(int nb)
 
 int	ft_len(int n)
 {
-	long	num;
-	int		len;
+	long long	num;
+	int			len;
 
 	num = n;
 	len = 0;

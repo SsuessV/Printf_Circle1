@@ -85,16 +85,34 @@ Compile your program with the library:
 
 ### AI Usage
 
-AI tools (such as ChatGPT/Claude) were used to:
+AI tools (such as ChatGPT and Claude) were used as learning and review aids during the development of this project.
 
-* Help understand the behavior of `printf` and assignment requirements
-* Clarify concepts related to `variadic functions` and related macros, 
-* Understand edge cases
-* Review implementation approaches and assist with debugging logic
-* Assist in writing parts of a test `main` function for testing purposes
-* Assist in structuring README file
+They were used to:
+- Explain the behavior and requirements of the `printf` function.
+- Clarify the use of variadic functions and the `stdarg.h` macros.
+- Discuss edge cases and expected outputs for different format specifiers.
+- Review implementation ideas and assist with debugging.
+- Help structure and refine the project documentation (README).
 
-No main functions were copied directly; all implementations were written manually.
+All source code, design decisions, and final implementations were written and validated manually by the author.
+
+---
+
+### Algorithm and Data Structure Choices
+
+The implementation of ft_printf follows a linear parsing algorithm. The format string is traversed character by character from left to right. When a regular character is encountered, it is written directly to the output. When a % character is found, the following character is interpreted as a format specifier and dispatched to the corresponding handler function.
+
+This approach was chosen because it closely mirrors the behavior of the standard printf function while remaining simple, efficient, and easy to maintain. Since each character in the format string is processed exactly once, the time complexity is proportional to the length of the format string, making the algorithm efficient for its intended purpose.
+
+The project does not require complex data structures such as linked lists, trees, or hash tables. Instead, it relies on:
+
+Character arrays (C strings) for storing and parsing format strings.
+Variadic argument lists provided by stdarg.h (va_list, va_start, va_arg, and va_end) to access an unknown number of arguments.
+Recursive or iterative number conversion functions for printing integers and hexadecimal values.
+
+Separate handler functions are used for each supported format specifier (%c, %s, %p, %d, %i, %u, %x, %X, and %%). This modular design improves readability, simplifies debugging, and allows each conversion type to be implemented independently.
+
+The chosen design prioritizes clarity, maintainability, and compliance with the project requirements while accurately reproducing the behavior of the standard printf function.
 
 ---
 

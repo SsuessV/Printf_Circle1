@@ -4,13 +4,15 @@ CC = cc
 
 CFLAGS = -Wall -Wextra -Werror -MMD -MP
 
-SRCS = \
-\
-\
-ft_printf.c\
-ft_putchar.c\
-ft_putnbr.c\
-ft_putstr.c\
+SRCS =	ft_strlen.c\
+		ft_printf.c\
+		ft_putchar.c\
+		ft_putstr.c\
+		ft_print_nbr.c\
+		ft_print_ptr.c\
+		ft_print_unsignedint.c\
+		ft_hexa_lower.c\
+		ft_hexa_upper.c
 
 OBJS = $(SRCS:.c=.o)
 DEPS = $(OBJS:.o=.d)

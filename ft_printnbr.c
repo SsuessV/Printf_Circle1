@@ -6,7 +6,7 @@
 /*   By: suyoun <suyoun@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/01 12:24:10 by suyoun            #+#    #+#             */
-/*   Updated: 2026/06/04 16:23:30 by suyoun           ###   ########.fr       */
+/*   Updated: 2026/06/04 17:12:50 by suyoun           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ int	ft_len(int n)
 	return (len);
 }
 
-int	ft_print_nbr(int n)
+int	ft_print_nbr(long long n)
 {
 	ft_putnbr(n);
 	return (ft_len(n));

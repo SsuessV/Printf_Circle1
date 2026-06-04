@@ -6,7 +6,7 @@
 /*   By: suyoun <suyoun@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/01 03:05:07 by suyoun            #+#    #+#             */
-/*   Updated: 2026/06/04 16:44:44 by suyoun           ###   ########.fr       */
+/*   Updated: 2026/06/04 17:12:57 by suyoun           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ static int	format_specifier(const char *spec, va_list args)
 	else if (*spec == 'p')
 		return (ft_print_ptr(va_arg(args, void *)));
 	else if (*spec == 'd' || *spec == 'i')
-		return (ft_print_nbr(va_arg(args, unsigned int)));
+		return (ft_print_nbr(va_arg(args, long long)));
 	else if (*spec == 'u')
 		return (ft_print_unsignedint(va_arg(args, unsigned int)));
 	else if (*spec == 'x')
@@ -35,6 +35,7 @@ int	ft_printf(const char *format, ...)
 	va_list		args;
 	va_start	;
 	int			i;
+
 	if (format == NULL)
 		return (-1);
 	i = 0;

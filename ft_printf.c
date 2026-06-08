@@ -47,8 +47,6 @@ int	ft_printf(const char *format, ...)
 		if (*format == '%')
 		{
 			format++;
-			if (!*format)
-				break ;
 			i += format_specifier(format, args);
 		}
 		else

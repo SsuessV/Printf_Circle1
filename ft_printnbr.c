@@ -22,7 +22,7 @@ void	ft_putnbr(int n)
 		write(1, "-", 1);
 		num = -num;
 	}
-	if (num >= 10)
+	if (num > 9)
 		ft_putnbr(num / 10);
 	write(1, &"0123456789"[num % 10], 1);
 }
@@ -48,11 +48,6 @@ int	ft_intlen(int n)
 
 int	ft_print_nbr(int n)
 {
-	long num;
-	int	len;
-
-	num = n;
-	len = ft_intlen(num);
-	ft_putnbr(num);
-	return (len);
+	ft_putnbr(n);
+	return (ft_intlen(n));
 }

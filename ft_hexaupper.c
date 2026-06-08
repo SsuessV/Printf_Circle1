@@ -20,7 +20,7 @@ int	ft_hexa_upper(unsigned int n)
 	base = "0123456789ABCDEF";
 	len = 0;
 	if (n >= 16)
-		len += convert_to_hex(n / 16);
+		len += ft_hexa_upper(n / 16);
 	len += write (1, &base[n % 16], 1);
 	return (len);
 }

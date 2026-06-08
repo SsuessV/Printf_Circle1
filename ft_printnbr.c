@@ -3,34 +3,34 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printnbr.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: suyoun <suyoun@student.42.fr>              +#+  +:+       +#+        */
+/*   By: suyoun <suyoun@student.42vienna.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/01 12:24:10 by suyoun            #+#    #+#             */
-/*   Updated: 2026/06/04 17:12:50 by suyoun           ###   ########.fr       */
+/*   Updated: 2026/06/08 20:11:00 by suyoun           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	ft_putnbr(int nb)
+void	ft_putnbr(int n)
 {
-	long long	num;
+	long	num;
 
-	num = nb;
+	num = n;
 	if (num < 0)
 	{
 		write(1, "-", 1);
 		num = -num;
 	}
-	if (num > 9)
+	if (num >= 10)
 		ft_putnbr(num / 10);
 	write(1, &"0123456789"[num % 10], 1);
 }
 
-int	ft_len(int n)
+int	ft_intlen(int n)
 {
-	long long	num;
-	int			len;
+	long	num;
+	int		len;
 
 	num = n;
 	len = 0;
@@ -46,8 +46,13 @@ int	ft_len(int n)
 	return (len);
 }
 
-int	ft_print_nbr(long long n)
+int	ft_print_nbr(int n)
 {
-	ft_putnbr(n);
-	return (ft_len(n));
+	long num;
+	int	len;
+
+	num = n;
+	len = ft_intlen(num);
+	ft_putnbr(num);
+	return (len);
 }

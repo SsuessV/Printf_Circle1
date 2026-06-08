@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: suyoun <suyoun@student.42.fr>              +#+  +:+       +#+        */
+/*   By: suyoun <suyoun@student.42vienna.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/01 03:05:07 by suyoun            #+#    #+#             */
-/*   Updated: 2026/06/04 17:12:57 by suyoun           ###   ########.fr       */
+/*   Updated: 2026/06/08 19:46:15 by suyoun           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,24 +21,43 @@ static int	format_specifier(const char *spec, va_list args)
 	else if (*spec == 'p')
 		return (ft_print_ptr(va_arg(args, void *)));
 	else if (*spec == 'd' || *spec == 'i')
-		return (ft_print_nbr(va_arg(args, long long)));
+		return (ft_print_nbr(va_arg(args, int)));
 	else if (*spec == 'u')
 		return (ft_print_unsignedint(va_arg(args, unsigned int)));
 	else if (*spec == 'x')
 		return (ft_hexa_lower(va_arg(args, unsigned int)));
 	else if (*spec == 'X')
 		return (ft_hexa_upper(va_arg(args, unsigned int)));
+	else if (*spec == '%')
+		return (write(1, "%", 1));
+	return (0);
 }
 
 int	ft_printf(const char *format, ...)
 {
 	va_list		args;
-	va_start	;
 	int			i;
 
-	if (format == NULL)
+	if (!format)
 		return (-1);
+	va_start(args, format);
 	i = 0;
+	while (*format)
+	{
+		if (*format == '%')
+		{
+			format++;
+			if (!*format)
+				break ;
+			i += format_specifier(format, args);
+		}
+		else
+		{
+			write(1, format, 1);
+			i++;
+		}
+		format++;
+	}
 	va_end (args);
 	return (i);
 }

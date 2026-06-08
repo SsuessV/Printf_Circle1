@@ -6,7 +6,7 @@
 /*   By: suyoun <suyoun@student.42vienna.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/01 03:05:30 by suyoun            #+#    #+#             */
-/*   Updated: 2026/06/02 22:21:15 by suyoun           ###   ########.fr       */
+/*   Updated: 2026/06/08 19:34:28 by suyoun           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,16 @@
 
 int	ft_putstr(char *s)
 {
+	int len;
+
+	len = 0;
 	if (!s)
 		return (write (1, "(null)", 6));
 	while (*s)
 	{
-		write(1, s, ft_strlen(s));
+		write(1, s, 1);
 		s++;
+		len++;
 	}
-	return (ft_strlen(s));
+	return (len);
 }

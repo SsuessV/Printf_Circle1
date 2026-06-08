@@ -30,6 +30,12 @@ static int	format_specifier(const char *spec, va_list args)
 		return (ft_hexa_upper(va_arg(args, unsigned int)));
 	else if (*spec == '%')
 		return (write(1, "%", 1));
+	else
+	{
+		write(1, "%", 1);
+		write(1, spec, 1);
+		return (2);
+	}
 	return (0);
 }
 

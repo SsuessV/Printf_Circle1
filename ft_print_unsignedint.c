@@ -12,14 +12,14 @@
 
 #include "ft_printf.h"
 
-static void	ft_unsign(unsigned int n)
+void	ft_unsign(unsigned int n)
 {
 	if (n > 9)
 		ft_unsign(n / 10);
 	write(1, &"0123456789"[n % 10], 1);
 }
 
-static int	ft_un_len(unsigned int n)
+int	ft_un_len(unsigned int n)
 {
 	int	len;
 

@@ -3,40 +3,47 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: suyoun <suyoun@student.42vienna.com>       +#+  +:+       +#+        */
+/*   By: suyoun <suyoun@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/01 03:05:07 by suyoun            #+#    #+#             */
-/*   Updated: 2026/06/08 19:46:15 by suyoun           ###   ########.fr       */
+/*   Updated: 2026/06/10 20:26:40 by suyoun           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static int	format_specifier(const char *spec, va_list args)
+static int	handle_percent_or_unknown(const char *spec)
+{
+	if (*spec == '%')
+	{
+		if (write(1, "%", 1) == -1)
+			return (-1);
+		return (1);
+	}
+	if (write(1, "%", 1) == -1)
+		return (-1);
+	if (write(1, spec, 1) == -1)
+		return (-1);
+	return (2);
+}
+
+static int	format_specifier(const char *spec, va_list *args)
 {
 	if (*spec == 'c')
-		return (ft_putchar(va_arg(args, int)));
-	else if (*spec == 's')
-		return (ft_putstr(va_arg(args, char *)));
-	else if (*spec == 'p')
-		return (ft_print_ptr(va_arg(args, void *)));
-	else if (*spec == 'd' || *spec == 'i')
-		return (ft_print_nbr(va_arg(args, int)));
-	else if (*spec == 'u')
-		return (ft_print_unsignedint(va_arg(args, unsigned int)));
-	else if (*spec == 'x')
-		return (ft_hexa_lower(va_arg(args, unsigned int)));
-	else if (*spec == 'X')
-		return (ft_hexa_upper(va_arg(args, unsigned int)));
-	else if (*spec == '%')
-		return (write(1, "%", 1));
-	else
-	{
-		write(1, "%", 1);
-		write(1, spec, 1);
-		return (2);
-	}
-	return (0);
+		return (ft_putchar(va_arg(*args, int)));
+	if (*spec == 's')
+		return (ft_putstr(va_arg(*args, char *)));
+	if (*spec == 'p')
+		return (ft_print_ptr(va_arg(*args, void *)));
+	if (*spec == 'd' || *spec == 'i')
+		return (ft_print_nbr(va_arg(*args, int)));
+	if (*spec == 'u')
+		return (ft_print_unsignedint(va_arg(*args, unsigned int)));
+	if (*spec == 'x')
+		return (ft_hexa_lower(va_arg(*args, unsigned int)));
+	if (*spec == 'X')
+		return (ft_hexa_upper(va_arg(*args, unsigned int)));
+	return (handle_percent_or_unknown(spec));
 }
 
 int	ft_printf(const char *format, ...)
@@ -53,11 +60,12 @@ int	ft_printf(const char *format, ...)
 		if (*format == '%')
 		{
 			format++;
-			i += format_specifier(format, args);
+			i += format_specifier(format, &args);
 		}
 		else
 		{
-			write(1, format, 1);
+			if (write(1, format, 1) == -1)
+				return (-1);
 			i++;
 		}
 		format++;

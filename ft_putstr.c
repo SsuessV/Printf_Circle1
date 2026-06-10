@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: suyoun <suyoun@student.42vienna.com>       +#+  +:+       +#+        */
+/*   By: suyoun <suyoun@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/01 03:05:30 by suyoun            #+#    #+#             */
-/*   Updated: 2026/06/08 19:34:28 by suyoun           ###   ########.fr       */
+/*   Updated: 2026/06/10 11:56:06 by suyoun           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,15 @@ int	ft_putstr(char *s)
 
 	len = 0;
 	if (!s)
-		return (write (1, "(null)", 6));
+	{
+		if ((write (1, "(null)", 6) == -1))
+			return (-1);
+		return (6);
+	}
 	while (*s)
 	{
-		write(1, s, 1);
+		if (write(1, s, 1) == -1)
+			return (-1);
 		s++;
 		len++;
 	}

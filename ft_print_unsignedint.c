@@ -3,20 +3,32 @@
 /*                                                        :::      ::::::::   */
 /*   ft_print_unsignedint.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: suyoun <suyoun@student.42vienna.com>       +#+  +:+       +#+        */
+/*   By: suyoun <suyoun@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/02 11:46:07 by suyoun            #+#    #+#             */
-/*   Updated: 2026/06/08 19:12:56 by suyoun           ###   ########.fr       */
+/*   Updated: 2026/06/10 20:21:33 by suyoun           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	ft_unsign(unsigned int n)
+int	ft_unsign(unsigned int n)
 {
+	int	len;
+	int	tmp;
+
+	len = 0;
 	if (n > 9)
-		ft_unsign(n / 10);
-	write(1, &"0123456789"[n % 10], 1);
+	{
+		tmp = ft_unsign(n / 10);
+		if (tmp == -1)
+			return (-1);
+		len += tmp;
+	}
+	if (write(1, &"0123456789"[n % 10], 1) == -1)
+		return (-1);
+	len += 1;
+	return (len);
 }
 
 int	ft_un_len(unsigned int n)

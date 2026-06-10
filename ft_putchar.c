@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putchar.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: suyoun <suyoun@student.42vienna.com>       +#+  +:+       +#+        */
+/*   By: suyoun <suyoun@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/01 03:01:49 by suyoun            #+#    #+#             */
-/*   Updated: 2026/06/02 22:24:21 by suyoun           ###   ########.fr       */
+/*   Updated: 2026/06/10 11:22:18 by suyoun           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 int	ft_putchar(int c)
 {
-	write (1, &c, 1);
+	if (write (1, &c, 1) == -1)
+		return (-1);
 	return (1);
 }
